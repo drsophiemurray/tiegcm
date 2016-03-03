@@ -9,6 +9,7 @@ Edited version of the Thermosphere Ionosphere Electrodynamics General Circulatio
 
 These parameters can be inputted directly at the lowest pressure level, or as a monthly average.
 
+I have also included some Python routines to run the model daily to produce forecasts for thermospheric conditions over the next three days.
 
 
 Directory list:
@@ -19,6 +20,7 @@ Directory list:
 | inputs/ | Example files | Input files *.inp, job files *.job |
 | scripts/ | Support scripts | Default job scripts, make files, utilities |
 | src/ | Source code | Source files *.F, *.h |
+| nrt/ | Near-real-time run code | Python files, *.py |
 
 
 
