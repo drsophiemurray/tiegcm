@@ -27,6 +27,8 @@ def get_values(spin_days):
     """Get values from indices_record.dat
     .dat file is arranged year[0], month[1], day[2], f10.7[3], kp[4]
     """
+    if not os.path.isdir(FOLDER_LOC):
+        os.mkdir(FOLDER_LOC)
     data = np.loadtxt("".join((FOLDER_LOC, "indices_record.dat")))
     length = len(data)
     kph  = data[length - (spin_days -1), 4]

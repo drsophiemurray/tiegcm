@@ -106,8 +106,7 @@ def gimme_settings(firstsource, start_time, prim_hours):
     main_name_prefix = "{}_v{}".format(runname, tiegcm_version)
     
     #Various folders which should already exist
-    #datalocal = os.environ["LOCALDATA"] # *SMURRAY: does not work with hpc #commented out 2015-04-24 by smurray to try to remove local data dependancy    
-    datalocal = '/data/nwp1/smurray/' #added this instead for testing
+    datalocal = os.environ["LOCALDATA"]
     tiegcm_mainfolder = "".join(["tiegcm", tiegcm_version_nodots])
     modelfolder = "tiegcm{}".format(tiegcm_version)
     modeldir = os.path.join(datalocal, tiegcm_mainfolder, modelfolder)

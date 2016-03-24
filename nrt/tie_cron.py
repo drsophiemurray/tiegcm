@@ -92,10 +92,11 @@ def tie_steps(initial_source_path, in_date, kp, f107, f107a, p_file_last, image_
 
 
 
-def choose_source(time): #change when in solar min or new version!
+def choose_source(time):
     """Figure out what TIEGCM source file to use,
     depending on what of the year it is.
-    Include source time for .inp file."""
+    Include source time for .inp file.
+    TODO: change when in solar min or new version of model!"""
     if 1 <= time.month < 3:
         firstsource = "TGCM.tiegcm1.95.pcntr_decsol_smax.nc"   #or 'smin'
         source_time = "355, 0, 0"
