@@ -3,6 +3,7 @@ Python Version:    2.7.2 (default, Oct  1 2012, 15:56:20)
 @author: smurray@eld264
 Created on Jun 19, 2014
 Purpose: Called by tie_cron_job.py to get indices needed to run TIEGCM forecasts.
+TODO:   Currently assumes presence of indices_record.dat - won't have. For now just copied current file, need to write script to generate this though. NOTE that BGS records don't go far enough back (tie_cron.py currently uses 7 days). Would need to compile for a few days - stupid! Use alternative source instead, eg SWPC
 '''
 
 import datetime
@@ -29,6 +30,7 @@ def get_values(spin_days):
     """
     if not os.path.isdir(FOLDER_LOC):
         os.mkdir(FOLDER_LOC)
+    
     data = np.loadtxt("".join((FOLDER_LOC, "indices_record.dat")))
     length = len(data)
     kph  = data[length - (spin_days -1), 4]

@@ -2,10 +2,10 @@
 Python Version:    2.7.2 (default, Oct  1 2012, 15:56:20)
 @author: smurray@eld264
 Created on Jul 31, 2014
-Purpose: Called by tie_cron.py to run TIEGCM forecasts daily.
-Notes: 		As mentioned in tie_cron, much of this is edited code originally written 
-			by ehenley in order to keep consistent for later ease of running with DA.
-Problem: 	DA code below needs to be run with very specific folders/files on local machine! 
+Purpose: Called by tie_cron_job.py to run TIEGCM forecasts daily.
+Notes: As mentioned in tie_cron_job, much of this is edited code originally by ehenley
+            in order to keep consistent for later ease of running with DA.
+Problem: DA code below needs to be run with very specific folders/files on local machine! 
             I've edited a bit to run on nwp1/data/smurray for now,
             but should really go to HPC etc in long term in a ROSE suite. 
             This might mean abandoning the DA coding below unless its rewritten..
@@ -106,7 +106,7 @@ def gimme_settings(firstsource, start_time, prim_hours):
     main_name_prefix = "{}_v{}".format(runname, tiegcm_version)
     
     #Various folders which should already exist
-    datalocal = os.environ["LOCALDATA"]
+    datalocal = os.environ["LOCALDATA"] # *SMURRAY: does not work with hpc EMH: TODO - fix this when we need HPC
     tiegcm_mainfolder = "".join(["tiegcm", tiegcm_version_nodots])
     modelfolder = "tiegcm{}".format(tiegcm_version)
     modeldir = os.path.join(datalocal, tiegcm_mainfolder, modelfolder)
